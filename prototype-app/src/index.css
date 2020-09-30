@@ -44,3 +44,8 @@ li {
     padding: 20px;
     width: 500px;
 }
+
+.todo button {
+    float: right;
+    margin-left: 20px;
+}

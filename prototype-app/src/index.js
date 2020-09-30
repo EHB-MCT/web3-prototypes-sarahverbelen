@@ -31,7 +31,7 @@ class TodoInput extends React.Component {
        // alert('A todo was submitted: ' + this.state.value);
         event.preventDefault();
         this.props.inputChange(this.state.value);
-        this.state.value = '';
+        this.setState({value: ''});
       }
 
     render() {
@@ -76,20 +76,42 @@ class NewToDo extends React.Component {
 }
 
 class ToDo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleRemove = this.handleRemove.bind(this);
+    }
+    handleRemove(data) {
+        //alert(data);
+        this.props.handleRemove(data);
+    }
     render() {
         return (
             <li className="todo">
                 {this.props.text}
+                <button className="remove" onClick={() => this.handleRemove(this.props.number)}>Remove</button>
+                <button className="done">Done</button>
             </li>
         )
     }
 }
 
 class ToDoList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleRemove = this.handleRemove.bind(this);
+    }
+
+    handleRemove(id) {
+        this.props.handleRemove(id);
+    }
 
     render() {
-       let listItems = this.props.todoList.map((todo) => <ToDo key={todo} text={todo} />
-        );
+       let listItems = [];
+       //let listItems = this.props.todoList.map((todo) => <ToDo key={todo} text={todo} /> );
+      for (let i = 0; i < this.props.todoList.length; i++) {
+        listItems.push(<ToDo key={i} text={this.props.todoList[i]} number={i} handleRemove={this.handleRemove}/>)
+      }
+
       return(
         <ul className='todoList'>
             {listItems}
@@ -102,10 +124,11 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todoList: ['test']
+            todoList: []
         };
         this.handleChange = this.handleChange.bind(this);
         this.onValueChange = this.onValueChange.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
     }
 
     handleChange(e) {
@@ -118,12 +141,18 @@ class App extends React.Component {
         this.setState({todoList: list})
     }
 
+    handleRemove(id) {
+        let list = this.state.todoList;
+        list.splice(id, 1);
+        this.setState({todoList: list});
+    }
+
     render() {
         return (
             <div id="main">
             <Header />
             <NewToDo onValueChange={this.onValueChange}/>
-            <ToDoList todoList={this.state.todoList}/>
+            <ToDoList todoList={this.state.todoList} handleRemove={this.handleRemove}/>
             </div>
         )
     }
