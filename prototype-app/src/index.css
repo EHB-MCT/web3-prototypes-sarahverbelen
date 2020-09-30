@@ -1,0 +1,46 @@
+* {
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.title {
+    font-size: 30px;
+    color: white;
+    margin-left: 50px;
+    display: inline-block;
+}
+
+header button {
+    display: inline-block;
+    margin-left: 50px;
+    padding: 10px;
+}
+
+header {
+    background-color: black;
+    width: 100vw;
+    height: 100px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.newToDo {
+    padding: 50px;
+}
+
+.input textarea {
+    margin-top: 50px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-left: 50px;
+    margin-top: 20px;
+    border: 1px solid black;
+    padding: 20px;
+    width: 500px;
+}
