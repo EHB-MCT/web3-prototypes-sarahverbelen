@@ -94,15 +94,15 @@ class ToDo extends React.Component {
             return (
                 <li className="todo listitem">
                     {this.props.text}
-                    <button className="remove" onClick={() => this.handleRemove(this.props.number)}>Remove</button>
-                    <button className="done" onClick={() => this.handleDone(this.props.number)}>Done</button>
+                    <button className="remove" onClick={() => this.handleRemove(this.props.number)}><i class="fas fa-trash-alt"></i></button>
+                    <button className="done" onClick={() => this.handleDone(this.props.number)}><i class="fas fa-check"></i></button>
                 </li>
             )
         } else {
             return (
                 <li className="done listitem">
                     {this.props.text}
-                    <button className="remove" onClick={() => this.handleRemove(this.props.number)}>Remove</button>
+                    <button className="remove" onClick={() => this.handleRemove(this.props.number)}><i class="fas fa-trash-alt"></i></button>
                 </li>
             )
         }

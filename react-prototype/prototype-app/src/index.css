@@ -40,19 +40,34 @@ ul {
 li {
     margin-left: 150px;
     margin-top: 20px;
-    border: 1px solid black;
     padding: 20px;
     width: 500px;
+    background-color: lightgray;
+    border-radius: 10px;
 }
 
 .listitem button {
     float: right;
     margin-left: 20px;
+    display: none;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    transition: .5s;
+}
+
+.listitem button:hover {
+    color: red;
+}
+
+.listitem:hover button {
+    display: inline-block;
 }
 
 .done li {
     background-color: lightgreen;
+
 }
+
 
 h2 {
     margin-left: 100px;
@@ -66,4 +81,6 @@ textarea {
 button {
     padding: 10px;
     margin-top: -10px;
+    font-size: 20px;
 }
+
