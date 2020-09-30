@@ -38,14 +38,32 @@ ul {
 }
 
 li {
-    margin-left: 50px;
+    margin-left: 150px;
     margin-top: 20px;
     border: 1px solid black;
     padding: 20px;
     width: 500px;
 }
 
-.todo button {
+.listitem button {
     float: right;
     margin-left: 20px;
+}
+
+.done li {
+    background-color: lightgreen;
+}
+
+h2 {
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+textarea {
+    margin-right: 50px;
+}
+
+button {
+    padding: 10px;
+    margin-top: -10px;
 }
