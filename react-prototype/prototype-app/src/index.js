@@ -14,6 +14,9 @@ class Header extends React.Component {
     }
 }
 
+
+// the input component is made up of a textarea and a button and is used in the newtodo component
+// it only shows when you press the 'add new to-do' button in the newtodo component
 class TodoInput extends React.Component {
     constructor(props) {
         super(props);
@@ -23,58 +26,64 @@ class TodoInput extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
 
+      // when the textarea is changed, we change the state of the value
+      // so that we can always access this value, for example when pressing the button
       handleChange(event) {
         this.setState({value: event.target.value});
       }
 
+      // when pressing the submit button, we call the function given to this component through the props
+      // we also clean out the textarea by putting the state that holds its value to an empty string
       handleSubmit(event) {
-       // alert('A todo was submitted: ' + this.state.value);
         event.preventDefault();
+
         this.props.inputChange(this.state.value);
         this.setState({value: ''});
       }
 
     render() {
-        if(this.props.visible){
+        if(this.props.visible){ // this if-else controls the visibility of this component
             return (
-                <form className='input' onSubmit={this.handleSubmit}>
+                <form className='input' onSubmit={this.handleSubmit}> 
                 <textarea value={this.state.value} onChange={this.handleChange}>To-do:</textarea>
                 <input type="submit" value="Submit" className="newElement" />
                 </form>
             );
         } else {
-            return null;
+            return null; // if it's invisible, react doesn't have to render this at all
         }
         
     }
 }
 
+// this is the component that holds the todoinput component as well as the button that can hide/show that compoentn
 class NewToDo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             visible: false,
-
         };
 
         this.inputChange = this.inputChange.bind(this);
     }
 
-    inputChange(value) {
+    inputChange(value) { // this function is given to this component by it's parent component; we need to define it here in order to give it to its own children
         this.props.onValueChange(value);
-    }
+    } 
 
 
     render() {
         return(
             <div className="newToDo">
-                <button className="newElement" onClick={() => this.setState({visible: !this.state.visible}) }>Add New To-Do</button> <br />
+                <button className="newElement" onClick={() => this.setState({visible: !this.state.visible})}>Add New To-Do</button> <br />
             <TodoInput visible={this.state.visible} inputChange={this.inputChange}/>
             </div>
         );
     }
 }
 
+// the todo component holds one to-do item
+// it receives the text, type (done or todo) and id (number) of that to-do item from its parent as a prop
 class ToDo extends React.Component {
     constructor(props) {
         super(props);
@@ -82,6 +91,7 @@ class ToDo extends React.Component {
         this.handleDone = this.handleDone.bind(this);
     }
 
+    // handleremove and handledone are two functions that are also given by its parent as a prop
     handleRemove(id) {
         this.props.handleRemove(id);
     }
@@ -90,7 +100,8 @@ class ToDo extends React.Component {
         this.props.handleDone(id);
     }
     render() {
-        if(this.props.type === 'todo') {
+        // depending on if this todo item is still to-do or already done, we render it slightly differently (different class, a button less/more)
+        if(this.props.type === 'todo') { 
             return (
                 <li className="todo listitem">
                     {this.props.text}
@@ -110,6 +121,8 @@ class ToDo extends React.Component {
     }
 }
 
+// this is a list component that makes a list out of todo items.
+// it receives its type and list from its parent
 class List extends React.Component {
     constructor(props) {
         super(props);
@@ -117,6 +130,7 @@ class List extends React.Component {
         this.handleDone = this.handleDone.bind(this);
     }
 
+    // handleremove and handledone are two function from its parent that it needs to give to its children
     handleRemove(id) {
         this.props.handleRemove(id);
     }
@@ -127,11 +141,13 @@ class List extends React.Component {
 
     render() {
        let listItems = [];
-       //let listItems = this.props.todoList.map((todo) => <ToDo key={todo} text={todo} /> );
+       // we loop over every item from the list and create a todo component with the necessary props out of it
+       // we then add this todo component to a list
       for (let i = 0; i < this.props.list.length; i++) {
         listItems.push(<ToDo key={i} text={this.props.list[i]} number={i} handleRemove={this.handleRemove} handleDone={this.handleDone} type={this.props.type}/>)
-      }
-
+      } 
+ 
+      // finally, we return this list of components to render inside of an ul
       return(
         <ul className={'list ' + this.props.type}>
             {listItems}
@@ -140,13 +156,19 @@ class List extends React.Component {
     }
 }
 
+// app is the component that holds all other components
+// it is also responsible for holding the todolist and donelist, which hold all of the items
+// it gives these lists as well as the functions that change these to its children where necessary
 class App extends React.Component {
     constructor(props) {
         super(props);
+        // both lists are states; this allows the rendered lists to change when things are added or removed
         this.state = {
             todoList: [],
             doneList: []
         };
+
+
         this.handleChange = this.handleChange.bind(this);
         this.onValueChange = this.onValueChange.bind(this);
         this.handleRemoveToDo = this.handleRemoveToDo.bind(this);
@@ -200,6 +222,8 @@ class App extends React.Component {
     }
 }
 
+
+// the last step is to let react render the entire app component on the document's root
 ReactDOM.render(
     <App />, document.getElementById('root')
 );
