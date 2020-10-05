@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello! Welcome to this Restify api.</h1>
+    <h2>The available routes are:</h2>
+    <ul>
+        <li><b>GET /index</b> returns this HTML file</li>
+        <li><b>GET /multiply?number=<i>x</i></b> returns the square of the given number</li>
+        <li><b>POST /save</b> saves data to the mongo database</li>
+    </ul>
+
+    <h2>Used resources:</h2>
+    <ul>
+        <li><a href="http://restify.com/docs/home/">Restify Docs</a></li>
+        <li><a href="https://www.colabug.com/2018/0408/2643255/">CoLaBug</a></li>
+        <li><a href="https://www.postman.com/">Postman</a></li>
+        <li><a href="https://docs.atlas.mongodb.com/">MongoDB Atlas</a></li>
+    </ul>
+
+    <h2>Form:</h2>
+    <form action="http://localhost:8000/save" method="POST">
+        <label for="name">Name: </label><input type="text" name="name" placeholder="Name" id="name"> <br>
+        <label for="email">Email: </label><input type="email" name="email" placeholder="email@mail.com" id="email"> <br>
+        <input type="submit" />
+    </form>
+</body>
+
+</html>
