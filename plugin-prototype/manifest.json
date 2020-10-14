@@ -3,7 +3,20 @@
     "name": "test extension",
     "version": "1",
     "description": "testing how extensions work, first prototype: includes scraping, api,..",
-    "permissions": [],
+    "permissions": ["activeTab", "declarativeContent"],
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+          "128": "images/icon128.png"
+        }
+      },
+    "icons": {
+        "128": "images/icon128.png"
+      },
+      "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
     "content_scripts": [
         {
             "matches": ["http://*/*","https://*/*"],
