@@ -39,6 +39,7 @@ h1 {
 
 .card:hover {
   background-color: lightseagreen;
+  cursor: pointer;
 }
 
 .card:hover h2 {
