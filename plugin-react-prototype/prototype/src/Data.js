@@ -43,10 +43,11 @@ class Data extends React.Component {
     render() {
         console.log(this.state.items);
         let items = []; 
-        for(let item of this.state.items) {
+        for(let item of this.state.items) { // for all of the items
             // console.log(item);
             items.push(<Item item={item} key={item["_id"]}/>);
         }
+
         return (
             <div className="data">
                 <h1>Data</h1>

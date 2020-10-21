@@ -37,6 +37,10 @@ h1 {
   transition: .3s;
 }
 
+.gold {
+  background-color: darkgoldenrod;
+}
+
 .card:hover {
   background-color: lightseagreen;
   cursor: pointer;

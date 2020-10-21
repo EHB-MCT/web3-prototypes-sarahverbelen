@@ -19,9 +19,11 @@ function getNewRedditInfo() {
         post.user = getNewRedditUser(post.headNode);
 
 
+
         // because ads don't get up or downvotes, this filters out ads
         if(post.karma != undefined) { 
             newPosts.push(post);
+            editPostCSS(post.headNode, post.karma);
         }
 
     }
@@ -29,6 +31,12 @@ function getNewRedditInfo() {
     // console.log(newPosts);
     save(newPosts);
 
+}
+
+function editPostCSS(headNode, karma) {
+    if(!karma.includes('k')){
+        headNode.css('background-color', 'red');
+    }
 }
 
 function getNewRedditKarma(headNode) {
