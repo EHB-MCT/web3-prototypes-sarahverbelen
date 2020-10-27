@@ -3,6 +3,7 @@
 const Hapi = require('@hapi/hapi');
 
 let deepai = require('./deepai');
+let toxicity = require('./toxicity');
 
 const init = async () => {
 
@@ -43,7 +44,8 @@ const init = async () => {
 async function getResults(text) {
     let res = {
         text: text,
-        deepai: await deepai.result(text)
+        deepai: await deepai.result(text),
+        toxicity: await toxicity.result(text)
     };
 
     return res;
