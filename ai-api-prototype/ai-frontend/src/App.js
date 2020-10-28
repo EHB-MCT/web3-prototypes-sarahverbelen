@@ -12,6 +12,7 @@ class App extends React.Component {
       }
     }
     this.sendData = this.sendData.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   render() {
@@ -31,15 +32,35 @@ class App extends React.Component {
   sendData(e) {
     e.preventDefault();
     let data = $('#input').val();
-    this.setState({
-      output: {
-        text: data,
-        judgement: 0
-      }
-    })
-    console.log(data);
+    $.ajax({
+          'method': 'POST',
+          'url': 'http://localhost:3001/result',
+          'data': {
+            text: data
+          },
+          'success': function (result) {
+              console.log(result);
+
+              let judge = 0;
+              if (result.deepai.output[0] === 'Positive') {
+                judge = 1;
+              } else if (result.deepai.output[0] === 'Negative') {
+                judge = -1;
+              }
+
+        this.setState({
+          output: {
+            text: result.text,
+              judgement: judge
+          }
+        });
+        }.bind(this)
+        });
+
   }
-}
+  }
+
+
 
 function Input(props) {
   return ( 

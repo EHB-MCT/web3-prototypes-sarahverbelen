@@ -8,7 +8,7 @@ let toxicity = require('./toxicity');
 const init = async () => {
 
     const server = Hapi.server({
-        port: 3000,
+        port: 3001,
         host: 'localhost'
     });
 
@@ -33,6 +33,9 @@ const init = async () => {
         options: {
             payload: {
                 multipart: true
+            },
+            cors: {
+                    origin: ['*']
             }
         }
     });
