@@ -1,5 +1,6 @@
 'use strict';
 
+const axios = require('axios');
 const Hapi = require('@hapi/hapi');
 
 let deepai = require('./deepai');
@@ -44,14 +45,33 @@ const init = async () => {
     console.log('Server running on %s', server.info.uri);
 };
 
-async function getResults(text) {
-    let res = {
-        text: text,
-        deepai: await deepai.result(text),
-        toxicity: await toxicity.result(text)
-    };
+// this is the function that uses two other api's to get results for english texts.
+// async function getOldResults(text) {
+//     let res = {
+//         text: text,
+//         deepai: await deepai.result(text),
+//         toxicity: await toxicity.result(text)
+//     };
 
-    return res;
+//     return res;
+// }
+
+
+// this function uses my own python api & model to get results for dutch texts.
+async function getResults(txt) {
+
+        let result = {
+            output: '',
+            text: txt
+        };
+
+        await axios.post('http://127.0.0.1:5000/getResult', {
+            text: txt
+        }).then(function (res) {
+            result.output = res.data;
+        });
+
+    return result;
 }
 
 

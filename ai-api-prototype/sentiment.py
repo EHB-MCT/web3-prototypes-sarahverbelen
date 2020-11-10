@@ -1,3 +1,6 @@
+# this file makes a model based on trainingsdata and then saves that model to the model.joblib file
+
+from joblib import dump, load
 import pandas as pd
 import numpy as np
 
@@ -58,10 +61,6 @@ y_pred = pipeline.predict(x_test)
 
 summarize_classification(y_test, y_pred, x_test)
 
-test_text_neg = "dit boek was vreselijk. Ik kan me niet inbeelden dat iemand dit zomaar voor zijn plezier zou lezen."
-test_text_pos = "Ik hield van dit boek! Er is geen beter boek in de wereld. Als ik niets anders mocht lezen, zou ik dit lezen."
-test_text_wildcard = 'Levensbeschouwing - philosophy of life - voor dagelijks gebruik, is vaak de zoektocht naar een weerbare, trotse omgang met het onvermijdelijke. Leven met beperkingen (aangezien almacht niet bestaat) blijft (zeker nu) steeds onvermijdelijk deel uitmaken van ‘mens – zijn’. Tijdens de beleving van die realiteit doen we ‘onhoudbaar’ aan levensbeschouwing en trachten betekenis te geven aan ‘bestaan’. Vaak is volledig herstel na een tegenslag of radicale verandering onmogelijk en is de terugkeer naar ‘de oude ik’ niet haalbaar. Re – validatie betekent voor een belangrijk deel dus een ‘soort van’ her – waardering: Anders bestaan, blijkt gelukkig vaak wel nog de moeite waard. Met overtuiging in herhaling vallend: lets do it again and again,  ...'
+# now we make our model persistent
 
-print(test_text_neg, pipeline.predict([test_text_neg]))
-print(test_text_pos, pipeline.predict([test_text_pos]))
-print(test_text_wildcard, pipeline.predict([test_text_wildcard]))
+dump(pipeline, 'model.joblib')

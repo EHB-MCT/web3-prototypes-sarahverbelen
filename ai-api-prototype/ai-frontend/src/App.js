@@ -42,9 +42,9 @@ class App extends React.Component {
               console.log(result);
 
               let judge = 0;
-              if (result.deepai.output[0] === 'Positive') {
+              if (result.output === 'pos') {
                 judge = 1;
-              } else if (result.deepai.output[0] === 'Negative') {
+              } else if (result.output === 'neg') {
                 judge = -1;
               }
 
