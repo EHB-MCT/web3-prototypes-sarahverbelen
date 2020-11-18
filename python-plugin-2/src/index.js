@@ -30,8 +30,9 @@ const callback = function (mutationsList, observer) {
                 if (mutationHtml != undefined) {
                     h3Index = mutationHtml.search('h3');
                     if (h3Index != -1) {
+                        console.log(mutation);
                         axios.post('http://127.0.0.1:5000/getTitles', {
-                            html: mutationHtml
+                            html: mutationHtml,
                         }).then(function (res) {
                             if (res.data.length > 0) {
                                 console.log(res.data);
