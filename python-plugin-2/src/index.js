@@ -3,8 +3,50 @@ const axios = require('axios');
 
 console.log("scraper running!");
 
-axios.post('http://127.0.0.1:5000/getH3', {
+axios.post('http://127.0.0.1:5000/getTitles', {
     html: document.documentElement.innerHTML
 }).then(function (res) {
     console.log(res.data);
 });
+// solution for infinite scroll based on: https://stackoverflow.com/questions/57313620/how-to-run-chrome-extension-code-repeatedly-on-infinite-scroll-pages
+const targetNode = document.body;
+
+// Options for the observer (which mutations to observe)
+// Set attributes to false if you do not care if existing nodes have changed,
+//  otherwise set it true. 
+const config = {
+    attributes: false,
+    childList: true,
+    subtree: true
+};
+
+// Callback function to execute when mutations are observed
+const callback = function (mutationsList, observer) {
+    for (let mutation of mutationsList) {
+        // console.log(mutation);
+        if (mutation.type == 'childList') {
+            if (mutation.addedNodes.length > 0) {
+                mutationHtml = mutation.addedNodes[0].innerHTML;
+                if (mutationHtml != undefined) {
+                    h3Index = mutationHtml.search('h3');
+                    if (h3Index != -1) {
+                        axios.post('http://127.0.0.1:5000/getTitles', {
+                            html: mutationHtml
+                        }).then(function (res) {
+                            if (res.data.length > 0) {
+                                console.log(res.data);
+                            }
+                        });
+                    }
+                }
+
+            }
+        }
+    }
+};
+
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(callback);
+
+// Start observing the target node for configured mutations
+observer.observe(targetNode, config);
