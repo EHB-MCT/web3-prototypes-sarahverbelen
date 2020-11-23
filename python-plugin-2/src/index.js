@@ -30,12 +30,23 @@ const callback = function (mutationsList, observer) {
                 if (mutationHtml != undefined) {
                     h3Index = mutationHtml.search('h3');
                     if (h3Index != -1) {
-                        console.log(mutation);
+                        // console.log(mutation);
                         axios.post('http://127.0.0.1:5000/getTitles', {
                             html: mutationHtml,
                         }).then(function (res) {
                             if (res.data.length > 0) {
-                                console.log(res.data);
+                                // console.log(res.data);
+                                let data = res.data[0];
+
+                                if (data.sentiment == "neg") { // if it's negative, make it look negative
+                                    let h3s = document.getElementsByTagName("h3");
+                                    for (h3 of h3s) {
+                                        if (h3.innerHTML == data.text) {
+                                            h3.classList.add('neg');
+                                        }
+                                    }
+                                }
+
                             }
                         });
                     }

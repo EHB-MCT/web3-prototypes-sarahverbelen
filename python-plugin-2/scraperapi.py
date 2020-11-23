@@ -28,13 +28,13 @@ def home():
 
 
 class ResultObject:
-    def __init__(self, text, id):
+    def __init__(self, text, klasse):
         self.text = text
         self.sentiment = getAIResult(text)
-        self.id = id
+        self.klasse = klasse
 
     def toJson(self):
-        return {"text": self.text, "sentiment": self.sentiment, "id": self.id}
+        return {"text": self.text, "sentiment": self.sentiment, "class": self.klasse}
 
 @app.route('/getTitles', methods=['POST'])
 @cross_origin()
@@ -45,16 +45,16 @@ def getTitles():
     array = []
     if len(h3s) > 0:
         for h3 in h3s:
-            id = h3.get('id')
+            klasse = h3.get('class')
             text = h3.getText()
-            result = ResultObject(text, id)
+            result = ResultObject(text, klasse)
             array.append(result.toJson())
     else:
         titles = soup.find_all('a', 'title')
         for title in titles:
-            id = title.get('id')
+            klasse = title.get('class')
             text = title.getText()
-            result = ResultObject(text, id)
+            result = ResultObject(text, klasse)
             array.append(result.toJson())
 
     print(array)
