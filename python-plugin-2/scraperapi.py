@@ -33,13 +33,13 @@ cors = CORS(app)
 
 def getAIResult(txt):
     # translate from english to dutch
-    translation = language_translator.translate(
-        text=txt, model_id='en-nl').get_result()  # throws 404????
-    # run it through the AI model
-    print(translation)
+    # translation = language_translator.translate(
+    #     text=txt, model_id='en-nl').get_result()  # throws 404????
+    # # run it through the AI model
+    # print(translation)
     translation = txt
     result = pipeline.predict([translation])
-    return result[0]
+    return str(result[0])
 
 
 @app.route('/', methods=['GET'])

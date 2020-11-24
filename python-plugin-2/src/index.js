@@ -38,7 +38,7 @@ const callback = function (mutationsList, observer) {
                                 // console.log(res.data);
                                 let data = res.data[0];
 
-                                if (data.sentiment == "neg") { // if it's negative, make it look negative
+                                if (data.sentiment == "neg" || data.sentiment == 1) { // if it's negative, make it look negative
                                     let found = false;
                                     let h3s = document.getElementsByTagName("h3");
                                     for (h3 of h3s) {
