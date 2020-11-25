@@ -1,4 +1,0 @@
--> node modules gebruiken in chrome plugin = webpack gebruiken om die node modules te bundelen (de chrome extension kan enkel aan de bestanden die je in je manifest meegeeft)
--> axios om ajax request te sturen naar eigen gemaakte python api (python in chrome plugin gebruiken werkt niet! python naar javascript compileren kan ook niet vanwege de libraries..)
-    -> rapydscript =/= python; maakt enkel javascript "python-achtig"
-    

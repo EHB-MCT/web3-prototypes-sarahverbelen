@@ -37,13 +37,13 @@ def summarize_classification(y_test, y_pred, x_test):
 # loading the training data
 
 
-dutch_data = pd.read_csv('./datasets/train.csv', encoding="ISO-8859-1")
-# we sample only 10,000 of the original 50,000 because it would take a long time otherwise
-dutch_data = dutch_data.sample(10000, replace=False)
-# print(dutch_data.describe())
+data = pd.read_csv('./datasets/train.csv', encoding="ISO-8859-1")
+# we sample only a part of the original because it would take a long time otherwise
+data = data.sample(4000, replace=False)
+# print(data.describe())
 
-X = dutch_data['tweet']
-Y = dutch_data['label']
+X = data['clean_comment'].values.astype('U')
+Y = data['category'].values.astype('U')
 
 # WITH PIPELINE AND LOGISTIC REGRESSION
 
