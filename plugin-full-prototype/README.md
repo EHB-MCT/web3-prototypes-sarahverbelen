@@ -17,3 +17,4 @@ On the dashboard, you can see this data and you can change your settings.
 * https://app.pluralsight.com/library/courses/mining-data-text/table-of-contents
 * https://www.kaggle.com/datasets?search=Sentiment+Analysis
 * https://webpack.js.org/
+* https://www.mongodb.com/
