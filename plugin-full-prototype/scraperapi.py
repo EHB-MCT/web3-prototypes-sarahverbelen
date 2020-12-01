@@ -5,19 +5,7 @@ from flask_cors import CORS, cross_origin
 from flask import jsonify
 import json
 
-# translator from IBM Watson: https://cloud.ibm.com/apidocs/language-translator?code=python
-from ibm_watson import LanguageTranslatorV3
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-
-authenticator = IAMAuthenticator(
-    'pvMuR9pNaQEzufd5NRY3Fvf1IjmkH2iBW3WfWBwqr8Ao')
-language_translator = LanguageTranslatorV3(
-    version='2018-05-01',
-    authenticator=authenticator
-)
-
-language_translator.set_service_url(
-    'https://api.eu-gb.discovery.watson.cloud.ibm.com')  # /instances/f2a5347b-3ce0-48b0-887c-0858ce210d71
+import requests
 
 # ai integration
 from joblib import dump, load
@@ -30,16 +18,21 @@ app = flask.Flask(__name__)
 cors = CORS(app)
 # app.config['CORS_HEADERS'] = 'Content-Type'
 
+amountOfTranslations = 0
+
 
 def getAIResult(txt):
     # translate from english to dutch
-    # translation = language_translator.translate(
-    #     text=txt, model_id='en-nl').get_result()  # throws 404????
-    # # run it through the AI model
-    # print(translation)
-    translation = txt
-    result = pipeline.predict([translation])
+    global amountOfTranslations # this is just a small fix to not overload the api with requests
+    if(amountOfTranslations % 10 == 0):
+        resp = requests.get('https://api.mymemory.translated.net/get?q=' + txt + '&langpair=en|nl&key=4dad4d88b0d6ecbacab6')
+        print(resp.json())
+    amountOfTranslations += 1
+   
+    
+    result = pipeline.predict([txt])
     return str(result[0])
+
 
 
 @app.route('/', methods=['GET'])
