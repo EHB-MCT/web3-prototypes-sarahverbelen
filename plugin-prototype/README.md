@@ -9,7 +9,8 @@ A chrome extension that scrapes r/worldnews and saves the titles, the karma and 
 4. Select this folder. You should now see the extension in the list of your extensions.
 
 **Starting the API**
-1. Run `node api.js`
+1. run `npm install`
+2. Run `node api.js`
 
 **Seeing the results**
 1. Navigate to https://www.reddit.com/ . Make sure that it is *not* the old version
