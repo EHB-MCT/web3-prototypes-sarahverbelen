@@ -38,20 +38,20 @@ const init = async () => {
         }
     });
 
-    // server.route({
-    //     method: 'POST',
-    //     path: '/save',
-    //     handler: (request, h) => {
-    //         client.connect(err => {
-    //             const collection = client.db("prototype").collection("test");
-    //             collection.insertOne(request.payload, function() {
-    //                 client.close();
-    //                 return {saved: request.payload};
-    //             });
+    server.route({
+        method: 'POST',
+        path: '/save',
+        handler: (request, h) => {
+            client.connect(err => {
+                const collection = client.db("prototype").collection("test");
+                collection.insertOne(request.payload, function() {
+                    client.close();
+                    return {saved: request.payload};
+                });
                 
-    //           });
-    //     }
-    // });
+              });
+        }
+    });
 
     await server.start();
     console.log('server running on %s', server.info.uri);

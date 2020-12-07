@@ -1,9 +1,13 @@
 # Web 3 Prototypes
 My Prototypes for my Web 3 Course. In this course, I did research for the technologies I could use in my Final Work project. 
-Author: Sarah Verbelen
-Academic Year: 2020 - 2021 (first semester)
-School: Erasmus University College Brussels - Multimedia & Communication Technology
-Lecturer: Mike Derycke
+
+**Author:** Sarah Verbelen
+
+**Academic Year:** 2020 - 2021 (first semester)
+
+**School:** Erasmus University College Brussels - Multimedia & Communication Technology
+
+**Lecturer:** Mike Derycke
 
 ## Overview of the Prototypes
 Each prototype has its own Readme with more information, as well as instructions to start them.
@@ -18,11 +22,11 @@ This was the prototype where I decided I would use Python for the back-end becau
 
 * **Hapi-Prototype:**
 
-One of my very first prototypes, back when I still thought I would have a Javascript Back-end. This is my version of the assignment 'prototype backend rest servive' as described in our cursus, using Hapi.  
+One of my very first prototypes, back when I still thought I would have a Javascript Back-end. This is my version of the assignment 'prototype backend rest servive' as described in our course, using Hapi.  
 
 * **Mongo-Restify-Prototype:**
 
-One of my very first prototypes, back when I still thought I would have a Javascript Back-end. This is my version of the assignment 'prototype backend rest servive' as described in our cursus, using MongoDB and Restify.
+One of my very first prototypes, back when I still thought I would have a Javascript Back-end. This is my version of the assignment 'prototype backend rest servive' as described in our course, using MongoDB and Restify.
 
 * **Plugin-Full-Prototype:**
 
@@ -31,7 +35,9 @@ My last and most important prototype. I would've liked to have integrated every 
 * **Plugin-Prototype-Test:**
 
 A prototype of a Chrome Extension based on the Getting Started Tutorial from the Chrome Extension Docs. 
-Plugin-Prototype
+
+* **Plugin-Prototype** 
+
 A chrome extension that scrapes r/worldnews and saves the titles, the karma and the user that posted the post into a MongoDB database. 
 
 * **Plugin-React-Prototype:**
@@ -44,4 +50,4 @@ This was the prototype where I tried to research how I could combine a chrome ex
 
 * **React-Prototype:**
 
-My very first React Prototype. My version of the assignment 'prototype frontend' as described in our cursus. 
+My very first React Prototype. My version of the assignment 'prototype frontend' as described in our course on Canvas. 
