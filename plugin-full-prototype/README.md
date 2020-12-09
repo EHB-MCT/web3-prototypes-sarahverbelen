@@ -18,16 +18,16 @@ The extension uses webpack in order to be able to use npm packages such as axios
 2. Open your console. You will see the results logged here as they are being returned by the api. 
 
 ## Used resources
-* https://www.w3schools.com/default.asp
-* https://stackoverflow.com/
-* https://developer.chrome.com/extensions/devguide
-* https://reactjs.org/tutorial/tutorial.html
-* https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-* https://flask.palletsprojects.com/en/1.1.x/
-* https://scikit-learn.org/stable/
-* https://www.tensorflow.org/
-* https://deepai.org/
-* https://app.pluralsight.com/library/courses/mining-data-text/table-of-contents
-* https://www.kaggle.com/datasets?search=Sentiment+Analysis
-* https://webpack.js.org/
-* https://www.mongodb.com/
+* [W3 Schools](https://www.w3schools.com/default.asp)
+* [Stackoverflow](https://stackoverflow.com/)
+* [Chrome Extensions Developer Guide](https://developer.chrome.com/extensions/devguide)
+* [React](https://reactjs.org/tutorial/tutorial.html)
+* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Scikit-Learn](https://scikit-learn.org/stable/)
+* [Tensorflow](https://www.tensorflow.org/)
+* [DeepAI](https://deepai.org/)
+* [PluralSight Tutorial on Mining Data From Text](https://app.pluralsight.com/library/courses/mining-data-text/table-of-contents)
+* [Kaggle Dataset](https://www.kaggle.com/datasets?search=Sentiment+Analysis)
+* [Webpack](https://webpack.js.org/)
+* [MongoDB](https://www.mongodb.com/)

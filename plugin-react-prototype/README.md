@@ -7,5 +7,5 @@ This is the front-end part of Plugin-Prototype. It's a React app that requests d
 3. Run `npm start`
 
 ## Used resources
-* [React documentation](https://reactjs.org/docsà
+* [React documentation](https://reactjs.org/docs)
 

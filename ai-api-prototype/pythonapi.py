@@ -3,8 +3,6 @@ from flask import request
 from joblib import dump, load
 pipeline = load('model.joblib')
 
-# print(pipeline.predict(['ik haat je en je suckt bleh']))
-
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True

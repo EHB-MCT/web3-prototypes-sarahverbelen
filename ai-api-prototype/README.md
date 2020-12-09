@@ -7,3 +7,16 @@ This is my first prototype that uses AI. Originally I wanted to have something t
 3. To start the back-end python: `python pythonapi.py` 
 4. To start the front-end: navigate to the ai-frontend folder and run `npm start`
 
+## Used Resources
+* [110k DBRD](https://github.com/benjaminvdb/110kDBRD)
+* [Python Docs](https://docs.python.org/3/library/csv.html)
+* [Tensorflow](https://www.tensorflow.org/js/models)
+* [Tensorflow Toxicity Model](https://github.com/tensorflow/tfjs-models/tree/master/toxicity)
+* [DeepAI](https://deepai.org/)
+* [React](https://reactjs.org/docs/getting-started.html)
+* [Axios](https://github.com/axios/axios)
+* [Hapi](https://hapi.dev/tutorials/gettingstarted/?lang=en_US)
+* [Scikit-learn](https://scikit-learn.org/stable/)
+* [Mining Data From Text Tutorial on Pluralsight](https://app.pluralsight.com/library/courses/mining-data-text/table-of-contents)
+* [Model Persistence - Scikit-Learn](https://scikit-learn.org/stable/modules/model_persistence.html)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)

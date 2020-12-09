@@ -10,3 +10,10 @@ This was the prototype where I tried to research how I could combine a chrome ex
 
 **Starting the API**
 1. Run `python src/scraper.py`
+
+## Used Resources
+* [W3 Schools](https://www.w3schools.com/default.asp)
+* [Stackoverflow](https://stackoverflow.com/)
+* [Chrome Extensions Developer Guide](https://developer.chrome.com/extensions/devguide)
+* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)

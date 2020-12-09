@@ -9,3 +9,4 @@ Features are listed in public/index.html, which can also be seen by going to loc
 
 ## Used resources
 * [Hapi Docs](https://hapi.dev/tutorials/?lang=en_US)
+* [MongoDB](https://www.mongodb.com/)
